@@ -8,36 +8,41 @@ Este programa permite determinar si una persona es mutante a partir de su secuen
 
 ### Ejemplos
 
-- **Secuencia mutante**
-  ´´´java
+- **Secuencia mutante verdadera**
+
   String[] dna = {"ATGCGA", "CAGTGC", "TTATGT", "AGAAGG", "CCCCTA", "TCACTG"};
   isMutant(dna); // Devuelve true
 
-  - **Secuencia mutante**
-  ´´´java
+- **Secuencia mutante falsa**
+  
   String[] dna = {"ATGCGA", "CAGTGC", "TTATTT", "AGACGG", "GCGTCA", "TCACTG"};
   isMutant(dna); // devuelve false
 
 ## Niveles de Implementación
+
 ### Nivel 1: Algoritmo de Detección de Mutantes
 La función isMutant(String[] dna) determina si una secuencia es mutante utilizando búsquedas eficientes en matrices para localizar secuencias de cuatro letras consecutivas en las tres direcciones: horizontal, vertical y oblicua.
 
 ### Nivel 2: Creación de la API REST
+
 Endpoint /mutant/: API que recibe secuencias de ADN en formato JSON. Si la secuencia es mutante, devuelve un estado 200 OK; de lo contrario, devuelve 403 Forbidden.
+
 **Ejemplo de solicitud:**
-´´´json
+
 POST /mutant/
 {
   "dna": ["ATGCGA", "CAGTGC", "TTATGT", "AGAAGG", "CCCCTA", "TCACTG"]
 }
+
 La API está desplegada en un servicio de cloud computing para facilitar su acceso.
 
 ### Nivel 3: Base de Datos y Estadísticas
+
 **Base de Datos:** Se integra una base de datos que guarda cada secuencia de ADN analizada, evitando duplicados.
 **Endpoint /stats/:** Devuelve estadísticas de las verificaciones realizadas, indicando el número de mutantes, humanos y la proporción (ratio) entre ambos.
 
 **Ejemplo de respuesta:**
-´´´json
+
 {
   "count_mutant_dna": 40,
   "count_human_dna": 100,
@@ -56,7 +61,7 @@ Docker (para despliegues)
 ## Ejecucion
 1. Clonar el Repositorio:
 git clone <https://github.com/matih1210/parcial1Mutante>
-cd proyecto-mutante
+cd proyecto-mutante (nombre del proyecto)
 
 2. Construir y Ejecutar la Aplicacion:
 ./gradlew bootRun
@@ -67,6 +72,7 @@ Estadisticas: En postman uso un GET con la url: http://localhost:8080/api/humano
 
 4. Acceso a la API en la nube
 Verificación de ADN: En postan uso un POST con la url: https://parcial1mutante.onrender.com/api/humanos/dnas/mutant
+
 Estadisticas: En postman uso un GET con la url: https://parcial1mutante.onrender.com/api/humanos/stats
 
 Al GET tambien se puede copiar en un browser y te trae las estadisticas de la aplicacion en la nube.
