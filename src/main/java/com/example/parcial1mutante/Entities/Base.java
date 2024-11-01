@@ -16,8 +16,8 @@ import java.io.Serializable;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public  abstract class Base implements Serializable {
+public  abstract class Base implements Serializable { // Generno una clase base de la cual todas la clases hijas van a heredar el id
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.AUTO) // El id es autogenerado
     private Long id;
 }

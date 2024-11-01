@@ -1,6 +1,6 @@
 package com.example.parcial1mutante.dto;
 
-public class StatsResponse {
+public class StatsResponse { // Creo un DTO StatsResponse para calcular las Stats y devolverlo a en forma de ese DTO
     private int countMutantDna;
     private int countHumanDna;
     private double ratio;

@@ -11,16 +11,16 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.Arrays;
 
-@RestController
-@CrossOrigin(origins = "*")
-@RequestMapping(path = "api/humanos/dnas")
+@RestController // Indica que esta clase es un controlador de Spring que maneja solicitudes HTTP y devuelve respuestas directamente (en formato JSON).
+@CrossOrigin(origins = "*") // Indica que esta clase es un controlador de Spring que maneja solicitudes HTTP y devuelve respuestas directamente (en formato JSON).
+@RequestMapping(path = "api/humanos/dnas")// Define la ruta base para todas las solicitudes en este controlador.
 public class DnaController {
 
     @Autowired
-    private DnaService service;
+    private DnaService service; // Se inyecta el servicio de ADN, que contiene la lógica de negocio relacionada con el ADN.
 
-    @PostMapping("/mutant")
-    public ResponseEntity<DnaResponse> isMutant(@Valid @RequestBody DnaRequest dnaRequest) {
+    @PostMapping("/mutant") // Define un endpoint para manejar solicitudes POST en la ruta /mutant.
+    public ResponseEntity<DnaResponse> isMutant(@Valid @RequestBody DnaRequest dnaRequest) { // Metodo que recibe un objeto DnaRequest (que debe contener el ADN) y devuelve una respuesta DnaResponse.
         if (dnaRequest == null || dnaRequest.getDna() == null) {
             DnaResponse response = new DnaResponse("El request de ADN es nulo");
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(response);

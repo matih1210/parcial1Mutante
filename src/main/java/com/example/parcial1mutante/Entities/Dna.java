@@ -15,11 +15,11 @@ import java.io.Serializable;
 @Builder
 @Audited
 
-public class Dna extends Base implements Serializable {
+public class Dna extends Base implements Serializable { // Creo la clase dna y que implemente serializable para convertirlo en una secuencia de bytes
 
-    @Column(name = "dna")
+    @Column(name = "dna") // El atributo donde se guarda un DNA
     private String dna;
 
-    @Column(name = "valorMutante")
+    @Column(name = "valorMutante") // El atributo donte guarda El valor de mutante
     private boolean isMutant;
 }

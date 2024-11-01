@@ -10,7 +10,7 @@ import java.io.Serializable;
 import java.util.List;
 import java.util.Optional;
 
-public abstract class BaseServiceImpl<E extends Base, ID extends Serializable> implements BaseService<E, ID> {
+public abstract class BaseServiceImpl<E extends Base, ID extends Serializable> implements BaseService<E, ID> { // BaseServiceImpl actúa como una implementación genérica de BaseService, proporcionando la lógica de CRUD común para cualquier entidad que extienda de Base.
     protected BaseRepository<E, ID> baseRepository;
 
     public BaseServiceImpl(BaseRepository<E, ID> baserepository) {
